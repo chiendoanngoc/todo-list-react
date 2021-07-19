@@ -22,3 +22,21 @@
   padding: 0 15px;
   margin: 10px 0;
 }
+
+.input {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input > input {
+  width: 90%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+.input > button {
+  height: 50px;
+}

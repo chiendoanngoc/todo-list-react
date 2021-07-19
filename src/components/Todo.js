@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/todo.css";
 import TodoItem from "./TodoItem";
+import Input from "./Input";
 
 function Todo() {
   const listItem = [
@@ -12,12 +13,18 @@ function Todo() {
   const [list, setList] = useState(listItem);
 
   function deleteItem(item) {
-    var newList = [];
+    const newList = [];
     list.forEach((todoItem) => {
       if (todoItem.id !== item.id) {
         newList.push(todoItem);
       }
     });
+    setList(newList);
+  }
+
+  function addItem(newItemText) {
+    const newList = [...list];
+    newList.push({id: 4, text: newItemText})
     setList(newList);
   }
 
@@ -31,6 +38,7 @@ function Todo() {
           <TodoItem item={item} deleteFunction={deleteItem} />
         ))}
       </div>
+      <Input addItemFunction={addItem} />
     </div>
   );
 }
