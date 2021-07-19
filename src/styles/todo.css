@@ -1,0 +1,24 @@
+.todo-list {
+  width: 60%;
+  margin: auto;
+}
+
+.header {
+  background-color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: center;
+}
+
+.body {
+  margin-top: 40px;
+}
+
+.todo-item {
+  height: 50px;
+  border: 1px solid rgb(175, 175, 175);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  margin: 10px 0;
+}
