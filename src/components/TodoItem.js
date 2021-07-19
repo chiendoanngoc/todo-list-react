@@ -1,8 +1,8 @@
-function TodoItem( {item} ) {
+function TodoItem( {item, deleteFunction} ) {
     return (
         <div className="todo-item">
-            <span>{item.name}</span>
-            <button>Delete</button>
+            <span>{item.text}</span>
+            <button onClick={() => deleteFunction(item)}>Delete</button>
         </div>
     );
 }
