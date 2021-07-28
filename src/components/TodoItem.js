@@ -13,7 +13,7 @@ function TodoItem({ item, deleteFunction, changeCheckFunction }) {
         </span>
       </div>
 
-      <button onClick={() => deleteFunction(item)}>Delete</button>
+      <button onClick={() => deleteFunction(item.id)}>Delete</button>
     </div>
   );
 }

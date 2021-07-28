@@ -13,6 +13,12 @@
   margin-top: 40px;
 }
 
+.body > button {
+  margin-right: 10px;
+  height: 30px;
+  width: 80px;
+}
+
 .todo-item {
   height: 50px;
   border: 1px solid rgb(175, 175, 175);

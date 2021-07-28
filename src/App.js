@@ -1,9 +1,9 @@
 import './App.css';
-import Todo from './components/Todo';
+import TodoApp from './bindings/TodoApp';
 
 function App() {
   return (
-    <Todo />
+    <TodoApp />
   );
 }
 
