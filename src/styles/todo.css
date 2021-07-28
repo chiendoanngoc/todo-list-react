@@ -23,20 +23,25 @@
   margin: 10px 0;
 }
 
-.input {
+.todo-item-checked {
+  text-decoration-line: line-through;
+  opacity: 0.3;
+}
+
+.input > form {
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.input > input {
+.input > form > input {
   width: 90%;
   height: 50px;
   box-sizing: border-box;
   font-size: large;
 }
 
-.input > button {
+.input > form > button {
   height: 50px;
 }

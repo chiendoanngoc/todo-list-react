@@ -1,10 +1,21 @@
-function TodoItem( {item, deleteFunction} ) {
-    return (
-        <div className="todo-item">
-            <span>{item.text}</span>
-            <button onClick={() => deleteFunction(item)}>Delete</button>
-        </div>
-    );
+function TodoItem({ item, deleteFunction, changeCheckFunction }) {
+  let className = "";
+  if (item.checked) {
+    className += "todo-item-checked";
+  }
+
+  return (
+    <div className="todo-item">
+      <div>
+        <input type="checkbox" onChange={(e) => changeCheckFunction(item.id)} />
+        <span className={className}>
+          {item.id}: {item.text}
+        </span>
+      </div>
+
+      <button onClick={() => deleteFunction(item)}>Delete</button>
+    </div>
+  );
 }
 
 export default TodoItem;

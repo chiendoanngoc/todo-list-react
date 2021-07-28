@@ -1,14 +1,31 @@
-function Input( {addItemFunction} ) {
-    function addItem() {
-        const text = document.getElementById("newTodo").value;
-        addItemFunction(text);
+import { useState } from "react";
+
+function Input({ addItemFunction }) {
+  const [text, setText] = useState("");
+
+  function addItem(e) {
+    e.preventDefault();
+    if (!text) {
+      alert("Blank!");
+      return;
     }
-    return (
-        <div className="input">
-            <input type="text" id="newTodo" placeholder="New Todo..."/>
-            <button onClick={addItem}>Add Todo</button>
-        </div>
-    )
+    addItemFunction(text);
+    setText("");
+  }
+
+  return (
+    <div className="input">
+      <form onSubmit={addItem}>
+        <input
+          type="text"
+          placeholder="New Todo..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button type="submit">Add Todo</button>
+      </form>
+    </div>
+  );
 }
 
 export default Input;
