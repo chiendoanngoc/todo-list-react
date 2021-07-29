@@ -13,6 +13,7 @@ function getID(state) {
 
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
+const CHANGE_CHECK = "CHANGE_CHECK";
 
 export const addTodo = (text) => ({
   type: ADD_TODO,
@@ -23,6 +24,11 @@ export const deleteTodo = (id) => ({
   type: DELETE_TODO,
   payload: id,
 });
+
+export const changeCheck = (id) => ({
+  type: CHANGE_CHECK,
+  payload: id
+})
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -41,6 +47,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         list: state.list.filter((todo) => todo.id !== action.payload)
       };
+      case "CHANGE_CHECK":
+        return {
+          ...state,
+          list: state.list.map((todo) => {
+            if (todo.id === action.payload) {
+              todo.checked = !todo.checked;
+            }
+            return todo;
+          })
+        }
     default:
       return state;
   }

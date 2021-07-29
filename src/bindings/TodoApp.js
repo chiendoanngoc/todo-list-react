@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Todo from "../components/Todo";
 import { addTodo } from "../redux/todo";
 import { deleteTodo } from "../redux/todo";
+import { changeCheck } from "../redux/todo";
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = {
   addTodo,
-  deleteTodo
+  deleteTodo,
+  changeCheck
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Todo);
