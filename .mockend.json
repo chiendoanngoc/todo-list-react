@@ -9,12 +9,14 @@
         "text": {
             "string": [
                 "Todo Item 1",
-                "Todo Item 1",
-                "Todo Item 1"
+                "Todo Item 2",
+                "Todo Item 3"
             ]
         },
         "checked": {
-            "boolean": false
+            "boolean": [
+                false
+            ]
         }
     }
 }
