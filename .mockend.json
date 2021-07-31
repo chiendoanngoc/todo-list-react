@@ -7,10 +7,14 @@
             }
         },
         "text": {
-            "string": {}
+            "string": [
+                "Todo Item 1",
+                "Todo Item 1",
+                "Todo Item 1"
+            ]
         },
         "checked": {
-            "boolean": {}
+            "boolean": false
         }
     }
 }
