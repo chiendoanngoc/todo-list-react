@@ -1,17 +1,10 @@
 {
     "List": {
         "id": {
-            "int": {
-                "min": 100,
-                "max": 300
-            }
+            "int": {}
         },
         "text": {
-            "string": [
-                "Todo Item 1",
-                "Todo Item 2",
-                "Todo Item 3"
-            ]
+            "string": {}
         },
         "checked": {
             "boolean": {}
