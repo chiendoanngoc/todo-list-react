@@ -4,14 +4,14 @@ import TodoItem from "./TodoItem";
 import Input from "./Input";
 import axios from "axios";
 
-function Todo({ todos, addTodo, deleteTodo, changeCheck }) {
+function Todo({ todos, addTodo, deleteTodo, changeCheck, initTodos }) {
   const [filter, setFilter] = useState("ALL");
 
   useEffect(() => {
     axios.get('https://mockend.com/chiendoanngoc/todo-list-react/lists').then((res) => {
-      console.log(res.data);
+      initTodos(res.data);
     });
-  }, []);
+  }, [initTodos]);
 
   return (
     <div className="todo-list">

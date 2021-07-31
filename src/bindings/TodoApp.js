@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 
 import Todo from "../components/Todo";
-import { addTodo } from "../redux/todo";
-import { deleteTodo } from "../redux/todo";
-import { changeCheck } from "../redux/todo";
+import { addTodo, deleteTodo, changeCheck, initTodos } from "../redux/todo";
 
 const mapStateToProps = (state) => {
   return {
@@ -14,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapActionToProps = {
   addTodo,
   deleteTodo,
-  changeCheck
+  changeCheck,
+  initTodos
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Todo);

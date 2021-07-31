@@ -1,9 +1,5 @@
 const initialState = {
-  list: [
-    { id: 1, text: "Todo Item 1", checked: false },
-    { id: 2, text: "Todo Item 2", checked: false },
-    { id: 3, text: "Todo Item 3", checked: false },
-  ],
+  list: [],
 };
 
 function getID(state) {
@@ -14,6 +10,7 @@ function getID(state) {
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const CHANGE_CHECK = "CHANGE_CHECK";
+const INIT_TODOS = "INIT_TODOS";
 
 export const addTodo = (text) => ({
   type: ADD_TODO,
@@ -27,12 +24,22 @@ export const deleteTodo = (id) => ({
 
 export const changeCheck = (id) => ({
   type: CHANGE_CHECK,
-  payload: id
-})
+  payload: id,
+});
+
+export const initTodos = (list) => ({
+  type: INIT_TODOS,
+  payload: list,
+});
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case INIT_TODOS:
+      return {
+        ...state,
+        list: action.payload,
+      };
+    case ADD_TODO:
       const newTodo = {
         id: getID(state),
         text: action.payload,
@@ -42,21 +49,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         list: [...state.list, newTodo],
       };
-    case "DELETE_TODO":
+    case DELETE_TODO:
       return {
         ...state,
-        list: state.list.filter((todo) => todo.id !== action.payload)
+        list: state.list.filter((todo) => todo.id !== action.payload),
       };
-      case "CHANGE_CHECK":
-        return {
-          ...state,
-          list: state.list.map((todo) => {
-            if (todo.id === action.payload) {
-              todo.checked = !todo.checked;
-            }
-            return todo;
-          })
-        }
+    case CHANGE_CHECK:
+      return {
+        ...state,
+        list: state.list.map((todo) => {
+          if (todo.id === action.payload) {
+            todo.checked = !todo.checked;
+          }
+          return todo;
+        }),
+      };
     default:
       return state;
   }
