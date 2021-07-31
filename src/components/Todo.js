@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/todo.css";
 import TodoItem from "./TodoItem";
 import Input from "./Input";
+import axios from "axios";
 
 function Todo({ todos, addTodo, deleteTodo, changeCheck }) {
   const [filter, setFilter] = useState("ALL");
+
+  useEffect(() => {
+    axios.get('https://mockend.com/chiendoanngoc/todo-list-react/lists').then((res) => {
+      console.log(res.data);
+    });
+  }, []);
 
   return (
     <div className="todo-list">
