@@ -14,9 +14,7 @@
             ]
         },
         "checked": {
-            "boolean": [
-                "false"
-            ]
+            "boolean": {}
         }
     }
 }
