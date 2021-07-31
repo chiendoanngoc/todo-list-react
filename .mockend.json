@@ -1,17 +1,14 @@
-[
-    {
-        "id": 1,
-        "text": "Todo Item 1",
-        "checked": false
+{
+    "Post": {
+      "title": { "string": {} },
+      "comments": {
+        "hasMany": "Comment"
+      }
     },
-    {
-        "id": 2,
-        "text": "Todo Item 2",
-        "checked": false
-    },
-    {
-        "id": 3,
-        "text": "Todo Item 3",
-        "checked": false
+    "Comment": {
+      "body": { "string": {} },
+      "post": {
+        "belongsTo": "Post"
+      }
     }
-]
+  }
