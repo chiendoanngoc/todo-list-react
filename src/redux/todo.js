@@ -3,12 +3,13 @@ const initialState = {
 };
 
 function getID(state) {
-  const newID = state.list[state.list.length - 1]["id"] + 1;
+  const newID = state.list.length === 0 ? 1 : state.list[state.list.length - 1]["id"] + 1;
   return newID;
 }
 
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
+const DELETE_ALL = "DELETE_ALL";
 const CHANGE_CHECK = "CHANGE_CHECK";
 const INIT_TODOS = "INIT_TODOS";
 
@@ -21,6 +22,10 @@ export const deleteTodo = (id) => ({
   type: DELETE_TODO,
   payload: id,
 });
+
+export const deleteAll = () => ({
+  type: DELETE_ALL
+})
 
 export const changeCheck = (id) => ({
   type: CHANGE_CHECK,
@@ -54,6 +59,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         list: state.list.filter((todo) => todo.id !== action.payload),
       };
+    case DELETE_ALL:
+      return {
+        ...state,
+        list: []
+      }
     case CHANGE_CHECK:
       return {
         ...state,
